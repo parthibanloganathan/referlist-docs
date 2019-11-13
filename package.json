@@ -1,0 +1,17 @@
+{
+  "name": "referlist",
+  "version": "1.0.0",
+  "description": "SDK for integrating Referlist on your website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "referlist", "waitlist", "referral", "viral"
+  ],
+  "author": "Referlist",
+  "contributors": [
+    "Ather Sajjad"
+  ],
+  "license": "MIT"
+}
