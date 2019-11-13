@@ -1,6 +1,6 @@
 # Getting started
 
-Add Referlist to your landing page in two steps
+Add Referlist to your landing page in less than 5 minutes
 
 # Install Referlist manually
 
@@ -17,9 +17,11 @@ Copy and paste the below JavaScript snippet in the page where you collect your u
 </script>
 ```
 
-2. Add the following id to the input field and button where you collect emails
+2. Add the following `id` to the input field and button where you collect emails
 
 Add `id="referlistemail"` to the input field where the user enters their email and `id="referlistbutton"` to the button they click to sign up for your waitlist
+
+For example
 
 ```
 <input type="text" id="referlistemail" />
