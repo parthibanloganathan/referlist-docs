@@ -88,7 +88,7 @@ If you're having trouble integrating Referlist, email us at <support@referlist.c
 
 ```
   componentDidMount = () => {
-    referlist.initialize({ domain: "NAME_OF_YOUR_DOMAIN" });
+    referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
   };
 ```
 
@@ -113,7 +113,7 @@ import referlist from "referlist";
 
 class Signup extends Component {
   componentDidMount = () => {
-    referlist.initialize({ domain: "NAME_OF_YOUR_DOMAIN" });
+    referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
   };
 
   render() {
