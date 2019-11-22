@@ -2,31 +2,80 @@
 
 Add Referlist to your landing page in less than 5 minutes
 
-# Install manually in any HTML page
+# Install embedded signup in a website builder like Squarespace, Weebly, Wix, etc - no code approach
 
-1. Add Referlist JavaScript snippet to your landing page
+Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist.
 
-Copy and paste the below JavaScript snippet in the page where you collect your user's email address. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page.
+Let's take Squarespace as an exmaple. Use the [code block feature](https://support.squarespace.com/hc/en-us/articles/206543167). Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
 
-```
-<script src="https://referlist.co/resources/referlist.js" type="text/javascript"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-  	window.referlist.initialize({ domain: "<NAME_OF_YOUR_DOMAIN>" });
-  });
-</script>
-```
-
-2. Add the following `id` to the input field and button where you collect emails
-
-Add `id="referlistemail"` to the input field where the user enters their email and `id="referlistbutton"` to the button they click to sign up for your waitlist
-
-For example
+1. Open your website editor in Squarespace
+2. Open up the relevant page where you'll collect emails in the Pages panel
+3. Add a Code block
+4. Copy and paste the below code where you want your signup form to be. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page
+5. You can edit the CSS below to change the style of the input field and button
 
 ```
-<input type="text" id="referlistemail" />
-<input type="button" id="referlistbutton" value="Join waitlist"/>
+<!-- Begin referlist signup form -->
+  <style>
+    .referlistcontainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #referlistemail {
+      width: 250px;
+      margin-right: 10px;
+      height: 45px;
+      border-radius: 32px;
+      border: none;
+      font-size: 16px;
+      padding-left: 10px;
+    }
+    #referlistbutton {
+      width: 150px;
+      height: 45px;
+      border: none;
+      border-radius: 32px;
+      font-size: 16px;
+      background-color: black;
+      color: white;
+    }
+    .referlistinnercontainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 60px;
+      padding-top: 60px;
+    }
+  </style>
+
+  <div class="referlistcontainer">
+    <div class="referlistinnercontainer">
+      <input
+        type="text"
+        id="referlistemail"
+        placeholder="email@yourcompany.com"
+      />
+      <input type="button" id="referlistbutton" value="Join" />
+    </div>
+  </div>
+
+  <script src="https://referlist.co/resources/referlist.js"
+    type="text/javascript"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      window.referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
+    });
+  </script>
+  <!-- End referlist signup form -->
 ```
+
+If you're having trouble integrating Referlist, email us at <support@referlist.co>.
+
 
 # Install in React via npm
 
@@ -64,7 +113,7 @@ import referlist from "referlist";
 
 class Signup extends Component {
   componentDidMount = () => {
-    referlist.initialize({ domain: "<NAME_OF_YOUR_DOMAIN>" });
+    referlist.initialize({ domain: "NAME_OF_YOUR_DOMAIN" });
   };
 
   render() {
@@ -80,26 +129,29 @@ class Signup extends Component {
 export default Signup;
 ```
 
-# Install in Squarespace, Weebly, Wix, etc
+# Install manually in any HTML page
 
-Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a signup textbox and button for your waitlist. 
+1. Add Referlist JavaScript snippet to your landing page
 
-Let's take Squarespace as an exmaple. Use the [code block feature](https://support.squarespace.com/hc/en-us/articles/206543167). Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
-
-1. Open your website editor in Squarespace
-2. Open up the relevant page where you'll collect emails in the Pages panel
-3. Add a Code block
-4. Copy and paste the below code where you want your signup form to be. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page.
+Copy and paste the below JavaScript snippet in the page where you collect your user's email address. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page.
 
 ```
-<script src="https://referlist.co/resources/referlist.js" type="text/javascript"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-  	window.referlist.initialize({ domain: "<NAME_OF_YOUR_DOMAIN>" });
-  });
-</script>
+  <script src="https://referlist.co/resources/referlist.js"
+    type="text/javascript"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      window.referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
+    });
+  </script>
+```
+
+2. Add the following `id` to the input field and button where you collect emails
+
+Add `id="referlistemail"` to the input field where the user enters their email and `id="referlistbutton"` to the button they click to sign up for your waitlist
+
+For example
+
+```
 <input type="text" id="referlistemail" />
-<input type="button" id="referlistbutton" value="Join waitlist" />
+<input type="button" id="referlistbutton" value="Join waitlist"/>
 ```
-
-If you're having trouble integrating Referlist, email us at <support@referlist.co> and we'll do your best to help.

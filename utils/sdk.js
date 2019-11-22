@@ -25,7 +25,7 @@
             "https://referlist.co/joinwaitlist/" + domain + "?email=" + email;
 
           // let url =
-          //   "http://localhost:3000/joinwaitlist/" + domain + "?email=" + email;
+            // "http://localhost:3000/joinwaitlist/" + domain + "?email=" + email;
 
           if (ref) {
             url = url + "&ref=" + ref;

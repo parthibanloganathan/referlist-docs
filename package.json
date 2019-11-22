@@ -1,8 +1,10 @@
 {
   "name": "referlist",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "SDK for integrating Referlist on your website",
   "main": "index.js",
+  "repository": "https://github.com/parthibanloganathan/referlist-sdk",
+  "homepage": "https://referlist.co",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
