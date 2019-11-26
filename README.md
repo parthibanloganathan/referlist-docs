@@ -1,7 +1,7 @@
 # referlist
 ## SDK for Referlist
 
-1. Install `referlist` via npm by running `npm install referlist --save`.
+1. Install `referlist` via npm by running `npm install referlist --save` in your React app.
 
 2. Import `referlist` in the page where you're collecting emails.
    `import referlist from "referlist";`

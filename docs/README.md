@@ -17,7 +17,7 @@ Pick whichever suits your needs best. If we don't support an installation method
 
 Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist.
 
-Let's take Squarespace as an exmaple. Use the [code block feature](https://support.squarespace.com/hc/en-us/articles/206543167). Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
+Let's take Squarespace as an example. Use the [code block feature](https://support.squarespace.com/hc/en-us/articles/206543167). Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
 
 1. Open your website editor in Squarespace
 2. Open up the relevant page where you'll collect emails in the Pages panel
