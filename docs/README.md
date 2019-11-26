@@ -2,7 +2,18 @@
 
 Add Referlist to your landing page in less than 5 minutes
 
-# Install embedded signup in a website builder like Squarespace, Weebly, Wix, etc - no code approach
+1. Login to [Referlist](https://referlist.co) and click Create a waitlist
+2. In the Setup tab, fill out the Required section. You need to choose a domain and both your company's name and website that contains your sign up form. To further customize your waitlist page, you can fill out the rest of the sections in Setup.
+3. Click Preview to see your waitlist page in a new tab. If everything looks good, hit Save.
+
+Now time to install Referlist code on your site. There are three ways you can do this:
+i) Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. Great to use on landing page builders. No code required
+ii) use our npm module to add Referlist to your React app
+iii) copy and paste a Javascript snippet and add ids to the right elements on your website
+
+Pick whichever suits your needs best. If we don't support an installation method that you want, just email us at <support@referlist.co> and we'll get on it.
+
+# Install embedded sign up form in a website builder like Squarespace, Weebly, Wix - you write 0 lines of code
 
 Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist.
 
@@ -11,7 +22,7 @@ Let's take Squarespace as an exmaple. Use the [code block feature](https://suppo
 1. Open your website editor in Squarespace
 2. Open up the relevant page where you'll collect emails in the Pages panel
 3. Add a Code block
-4. Copy and paste the below code where you want your signup form to be. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page
+4. Copy and paste the below code where you want your signup form to be. Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page. You can also get this code snippet from the Referlist Setup page once you hit Save.
 5. You can edit the CSS below to change the style of the input field and button
 
 ```
@@ -73,8 +84,6 @@ Let's take Squarespace as an exmaple. Use the [code block feature](https://suppo
   </script>
   <!-- End referlist signup form -->
 ```
-
-If you're having trouble integrating Referlist, email us at <support@referlist.co>.
 
 
 # Install in React via npm
