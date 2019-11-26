@@ -13,11 +13,17 @@ Now it's time to install Referlist code on your site. There are three ways you c
 
 Pick whichever suits your needs best. If we don't support an installation method that you need, just email us at <support@referlist.co> and we'll get on it.
 
-# Install embedded sign up form in a website builder like Squarespace, Weebly, Wix - you write 0 lines of code
+# Install embedded sign up form in a website builder like Squarespace, Webflow, Wix, etc - you write 0 lines of code
 
 Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist.
 
-Let's take Squarespace as an example. Use the [code block feature](https://support.squarespace.com/hc/en-us/articles/206543167). Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
+Links to code embed help center articles for on popular website builders:
+1. [Squarespace](https://support.squarespace.com/hc/en-us/articles/206543167)
+2. [Webflow](https://university.webflow.com/article/embed)
+3. [Wix](https://support.wix.com/en/article/embedding-custom-code-to-your-site)
+5. [Weebly](https://www.weebly.com/app/help/us/en/topics/create-widgets-embed-code-and-add-external-content)
+
+Let's take Squarespace as an example. Use the code block feature. Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
 
 1. Open your website editor in Squarespace
 2. Open up the relevant page where you'll collect emails in the Pages panel
@@ -84,7 +90,6 @@ Let's take Squarespace as an example. Use the [code block feature](https://suppo
   </script>
   <!-- End referlist signup form -->
 ```
-
 
 # Install in React via npm
 
