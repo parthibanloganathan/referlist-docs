@@ -23,7 +23,7 @@ Links to code embed help center articles for on popular website builders:
 3. [Wix](https://support.wix.com/en/article/embedding-custom-code-to-your-site)
 5. [Weebly](https://www.weebly.com/app/help/us/en/topics/create-widgets-embed-code-and-add-external-content)
 
-Let's take Squarespace as an example. Use the code block feature. Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
+Let's take Squarespace as an example. Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
 
 1. Open your website editor in Squarespace
 2. Open up the relevant page where you'll collect emails in the Pages panel
