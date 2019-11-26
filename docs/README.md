@@ -11,7 +11,7 @@ Now it's time to install Referlist code on your site. There are three ways you c
 2. Use our [npm module](https://www.npmjs.com/package/referlist) to add Referlist to your React app
 3. Copy and paste a Javascript snippet and add ids to the right elements on your website
 
-Pick whichever suits your needs best. If we don't support an installation method that you want, just email us at <support@referlist.co> and we'll get on it.
+Pick whichever suits your needs best. If we don't support an installation method that you need, just email us at <support@referlist.co> and we'll get on it.
 
 # Install embedded sign up form in a website builder like Squarespace, Weebly, Wix - you write 0 lines of code
 
@@ -88,7 +88,7 @@ Let's take Squarespace as an exmaple. Use the [code block feature](https://suppo
 
 # Install in React via npm
 
-1. Install `referlist` via npm by running `npm install referlist --save`.
+1. Install `referlist` via npm by running `npm install referlist --save` in your React app.
 
 2. Import `referlist` in the page where you're collecting emails.
    `import referlist from "referlist";`
