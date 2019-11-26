@@ -3,13 +3,13 @@
 Add Referlist to your landing page in less than 5 minutes
 
 1. Login to [Referlist](https://referlist.co) and click Create a waitlist
-2. In the Setup tab, fill out the Required section. You need to choose a domain and both your company's name and website that contains your sign up form. To further customize your waitlist page, you can fill out the rest of the sections in Setup.
+2. In the Setup tab, fill out the Required section. You need to choose a domain, enter your company's name and your website URL that contains your sign up form. To further customize your waitlist page, you can fill out the rest of the sections in Setup.
 3. Click Preview to see your waitlist page in a new tab. If everything looks good, hit Save.
 
-Now time to install Referlist code on your site. There are three ways you can do this:
-i) Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. Great to use on landing page builders. No code required
-ii) use our npm module to add Referlist to your React app
-iii) copy and paste a Javascript snippet and add ids to the right elements on your website
+Now it's time to install Referlist code on your site. There are three ways you can do this:
+1. Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. Great to use on landing page builders. No code required
+2. Use our [npm module](https://www.npmjs.com/package/referlist) to add Referlist to your React app
+3. Copy and paste a Javascript snippet and add ids to the right elements on your website
 
 Pick whichever suits your needs best. If we don't support an installation method that you want, just email us at <support@referlist.co> and we'll get on it.
 
