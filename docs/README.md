@@ -46,7 +46,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
       margin-right: 10px;
       height: 45px;
       border-radius: 32px;
-      border: none;
+      border-color: black;
       font-size: 16px;
       padding-left: 10px;
     }
@@ -69,7 +69,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
       padding-top: 60px;
     }
   </style>
-
+  
   <div class="referlistcontainer">
     <div class="referlistinnercontainer">
       <input
@@ -77,19 +77,19 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
         id="referlistemail"
         placeholder="email@yourcompany.com"
       />
-      <input type="button" id="referlistbutton" value="Join" />
+      <input type="button" id="referlistbutton" value="Join waitlist" />
     </div>
   </div>
-
+  
   <script src="https://referlist.co/resources/referlist.js"
     type="text/javascript"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
-      window.referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
+      window.referlist.initialize({ domain: 'myproject' });
     });
   </script>
   <!-- End referlist signup form -->
-```
+  ```
 
 # Install in React via npm
 
