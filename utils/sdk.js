@@ -1,19 +1,19 @@
 (function() {
   function initialize(waitlistdetails) {
     var domain = waitlistdetails.domain;
-    var textFieldId = waitlistdetails.textFieldId;
+    var emailId = waitlistdetails.emailId;
     var buttonId = waitlistdetails.buttonId;
 
-    var referlistTextFieldId = "referlistemail";
+    var referListEmailId = "referlistemail";
     var referListButtonId = "referlistbutton";
 
-    if (textFieldId && buttonId) {
-      referlistTextFieldId = textFieldId;
+    if (emailId && buttonId) {
+      referListEmailId = emailId;
       referListButtonId = buttonId;
     }
 
     let referlistButton = document.getElementById(referListButtonId);
-    let emailField = document.getElementById(referlistTextFieldId);
+    let emailField = document.getElementById(referListEmailId);
     if (referlistButton && emailField) {
       referlistButton.addEventListener("click", function() {
         var email = emailField.value;
