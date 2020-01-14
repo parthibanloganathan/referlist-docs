@@ -1,9 +1,19 @@
 (function() {
   function initialize(waitlistdetails) {
-    domain = waitlistdetails.domain;
+    var domain = waitlistdetails.domain;
+    var emailId = waitlistdetails.emailId;
+    var buttonId = waitlistdetails.buttonId;
 
-    let referlistButton = document.getElementById("referlistbutton");
-    let emailField = document.getElementById("referlistemail");
+    var referListEmailId = "referlistemail";
+    var referListButtonId = "referlistbutton";
+
+    if (emailId && buttonId) {
+      referListEmailId = emailId;
+      referListButtonId = buttonId;
+    }
+
+    let referlistButton = document.getElementById(referListButtonId);
+    let emailField = document.getElementById(referListEmailId);
     if (referlistButton && emailField) {
       referlistButton.addEventListener("click", function() {
         var email = emailField.value;
@@ -24,8 +34,7 @@
           let url =
             "https://referlist.co/joinwaitlist/" + domain + "?email=" + email;
 
-          // let url =
-            // "http://localhost:3000/joinwaitlist/" + domain + "?email=" + email;
+          //let url = "http://localhost:3000/joinwaitlist/" + domain + "?email=" + email;
 
           if (ref) {
             url = url + "&ref=" + ref;
@@ -33,7 +42,7 @@
 
           window.open(url, "_self");
         } else {
-          alert("Please enter a valid email address");
+          window.alert("Please enter a valid email address");
         }
       });
     } else {
