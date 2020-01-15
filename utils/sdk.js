@@ -14,6 +14,7 @@
 
     let referlistButton = document.getElementById(referListButtonId);
     let emailField = document.getElementById(referListEmailId);
+
     if (referlistButton && emailField) {
       referlistButton.addEventListener("click", function() {
         var email = emailField.value;
@@ -47,7 +48,7 @@
       });
     } else {
       throw new Error(
-        "Create a text field with id set to 'referlistemail' and associated button with id set to `referlistbutton`"
+        "Create a text field with id set to 'referlistemail' and associated button with id set to `referlistbutton` or provide emailId and buttonId as ids of the field and button you want to use in the referlist.initialize method"
       );
     }
   }
