@@ -169,3 +169,47 @@ For example
 <input type="text" id="referlistemail" />
 <input type="button" id="referlistbutton" value="Join waitlist"/>
 ```
+
+## Multiple sign up forms
+If you want to add multiple sign-up fields to a single page on your site, call `referlist.initialize` with the following parameters: `emailId` and `buttonId`.
+
+For example, call `referlist.initialize({ domain: NAME_OF_YOUR_DOMAIN, emailId: ID_OF_EMAIL_FIELD, buttonId: ID_OF_BUTTON_FIELD})` where `ID_OF_EMAIL_FIELD` is the id of the second field where you want to collect the email address and `ID_OF_BUTTON_FIELD` is the id of the second button which signs up your user.
+
+You can repeat this for as many fields and button as you want. Just provide the ids of them so that the Referlist SDK knows where to get the email from and what button click to listen to.
+
+Here is a code sample:
+
+```
+<input type="text" id="referlistemail" />
+<input type="button" id="referlistbutton" value="Join waitlist"/>
+
+// .... somewhere down in the same page
+
+<input type="text" id="ID_OF_EMAIL_FIELD" />
+<input type="button" id="ID_OF_BUTTON_FIELD" value="Join waitlist"/>
+
+  <div class="referlistcontainer">
+    <div class="referlistinnercontainer">
+      <input
+        type="text"
+        id="referlistemail"
+        placeholder="email@yourcompany.com"
+      />
+      <input type="button" id="referlistbutton" value="Join waitlist" />
+    </div>
+    ....
+    ....
+    ....
+    <input type="text" id="secondemailfield" />
+    <input type="button" id="secondbutton" value="Join waitlist"/>
+  </div>
+  
+  <script src="https://referlist.co/resources/referlist.js"
+    type="text/javascript"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      window.referlist.initialize({ domain: 'myproject' }); // this will setup the first field
+      window.referlist.initialize({ domain: 'myproject', emailId: 'secondemailfield', buttonId: 'secondbutton' }); // this will setup the second field
+    });
+  </script>
+```
