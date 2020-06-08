@@ -1,9 +1,16 @@
-(function() {
+(function () {
+  var subscribersCountDivName = "referlist_subscribers";
   function initialize(waitlistdetails) {
     var domain = waitlistdetails.domain;
     var emailId = waitlistdetails.emailId;
     var buttonId = waitlistdetails.buttonId;
 
+    var hasSubscribersDiv = document.getElementsByClassName(
+      subscribersCountDivName
+    );
+    if (hasSubscribersDiv.length > 0) {
+      getSubscriberCount(domain);
+    }
     var referListEmailId = "referlistemail";
     var referListButtonId = "referlistbutton";
 
@@ -16,7 +23,7 @@
     let emailField = document.getElementById(referListEmailId);
 
     if (referlistButton && emailField) {
-      referlistButton.addEventListener("click", function() {
+      referlistButton.addEventListener("click", function () {
         var email = emailField.value;
         if (validateEmail(email)) {
           var ref = null;
@@ -71,6 +78,29 @@
       query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
     }
     return query;
+  }
+
+  function getSubscriberCount(domain) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var count = JSON.parse(this.responseText).count;
+        var subscribersDiv = document.getElementsByClassName(
+          subscribersCountDivName
+        );
+        for (var eachDiv of subscribersDiv) {
+          eachDiv.innerHTML = count + " subscribers";
+          eachDiv.style.display = "block";
+        }
+      }
+    };
+
+    let url = "https://referlist.co/api/getsubscribercount";
+
+    //let url = "http://localhost:3000/api/getsubscribercount";
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("domain=" + domain);
   }
 
   module.exports = {
