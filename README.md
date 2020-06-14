@@ -52,3 +52,20 @@ export default Signup;
 ```
 
 Please refer http://docs.referlist.co/#/?id=install-referlist-via-npm for more information
+
+## Importing signups
+To import signups from an existing waitlist, format your existing waitlist as a CSV with a column called `email`. We'll extract all emails from that column in the same order and add them to your Referlist waitlist.
+
+## Exporting signups
+### Mailchimp
+1. In a project, click Setup and scroll down to Integrations
+2. Click on Connect to Mailchimp
+3. Authorize access to Mailchimp
+4. Select the Mailchimp audience list you want to send signups to from the dropdown
+5. Hit Save
+
+### Airtable
+1. In a project, click Setup and scroll down to Integrations
+2. Find your Airtable API Key by going to your Accounts page and enter it. [See instructions here](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-)
+3. Find your Airtable Base ID by going to the Airtable API documentation and clicking on your base. [See instructions here](https://airtable.com/api)
+4. Hit Save
