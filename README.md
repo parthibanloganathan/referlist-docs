@@ -65,7 +65,7 @@ To import signups from an existing waitlist, format your existing waitlist as a 
 5. Hit Save
 
 ### Airtable
-1. Make sure your Airtable
+1. Make sure your Airtable base has a table called "signups" and a column called "emails"
 2. In a project, click Setup and scroll down to Integrations
 3. Find your Airtable API Key by going to your Accounts page and enter it. [See instructions here](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-)
 4. Find your Airtable Base ID by going to the Airtable API documentation and clicking on your base. [See instructions here](https://airtable.com/api)
