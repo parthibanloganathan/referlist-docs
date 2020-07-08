@@ -1,4 +1,4 @@
-(function() {
+(function () {
   function initialize(waitlistdetails) {
     var domain = waitlistdetails.domain;
     var emailId = waitlistdetails.emailId;
@@ -16,7 +16,7 @@
     let emailField = document.getElementById(referListEmailId);
 
     if (referlistButton && emailField) {
-      referlistButton.addEventListener("click", function() {
+      referlistButton.addEventListener("click", function () {
         var email = emailField.value;
         if (validateEmail(email)) {
           var ref = null;
@@ -53,11 +53,9 @@
     }
   }
 
-  function validateEmail(mail) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-      return true;
-    }
-    return false;
+  function validateEmail(email) {
+    const regexp = /\S+@\S+\.\S+/;
+    return regexp.test(email);
   }
 
   function parseQuery(queryString) {
