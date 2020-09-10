@@ -41,7 +41,7 @@
             url = url + "&ref=" + ref;
           }
 
-          window.open(url, "_self");
+          window.open(url, "_parent");
         } else {
           window.alert("Please enter a valid email address");
         }
