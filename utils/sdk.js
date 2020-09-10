@@ -33,7 +33,7 @@
           }
 
           let url =
-            "https://referlist.co/joinwaitlist/" + domain + "?email=" + email;
+            "https://referlist.co/joinwaitlist/" + domain + "?email=" + encodeURIComponent(email);
 
           //let url = "http://localhost:3000/joinwaitlist/" + domain + "?email=" + email;
 
