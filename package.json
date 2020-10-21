@@ -1,6 +1,6 @@
 {
   "name": "referlist",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "SDK for integrating Referlist on your website",
   "main": "index.js",
   "repository": "https://github.com/parthibanloganathan/referlist-sdk",

@@ -6,22 +6,25 @@ Add Referlist to your landing page in less than 5 minutes
 2. In the Setup tab, fill out the Required section. You need to choose a domain, enter your company's name and your website URL that contains your sign up form. To further customize your waitlist page, you can fill out the rest of the sections in Setup.
 3. Click Preview to see your waitlist page in a new tab. If everything looks good, hit Save.
 
-Now it's time to install Referlist code on your site. There are three ways you can do this:
-1. Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. Great to use on landing page builders. No code required
+Now it's time to install Referlist code on your site. There are four ways you can do this in order of least to most custom:
+
+1. Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. No code required
 2. Use our [npm module](https://www.npmjs.com/package/referlist) to add Referlist to your React app
 3. Copy and paste a Javascript snippet and add ids to the right elements on your website
+4. Copy and paste a Javascript snippet and manually make a call to add a user to the waitlist
 
-Pick whichever suits your needs best. If we don't support an installation method that you need, just email us at <support@referlist.co> and we'll get on it.
+Pick whichever suits your needs best. If we don't support an installation method that you need, just email us at <support@referlist.co> and we'll help.
 
 # Install embedded sign up form in a website builder like Squarespace, Webflow, Wix, etc - you write 0 lines of code
 
-Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist.
+Most website builders have a custom code block feature where you can inject your own HTML, CSS and JavaScript into your site. You can simply copy and paste the following code block to get a styled signup textbox and button for your waitlist. Some of them make this a paid feature though.
 
 Links to code embed help center articles for on popular website builders:
+
 1. [Squarespace](https://support.squarespace.com/hc/en-us/articles/206543167)
 2. [Webflow](https://university.webflow.com/article/embed)
 3. [Wix](https://support.wix.com/en/article/embedding-custom-code-to-your-site)
-5. [Weebly](https://www.weebly.com/app/help/us/en/topics/create-widgets-embed-code-and-add-external-content)
+4. [Weebly](https://www.weebly.com/app/help/us/en/topics/create-widgets-embed-code-and-add-external-content)
 
 Let's take Squarespace as an example. Note that adding code blocks with JavaScript is a premium feature in Squarespace that's only available in their Business and Commerce plans.
 
@@ -69,7 +72,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
       padding-top: 60px;
     }
   </style>
-  
+
   <div class="referlistcontainer">
     <div class="referlistinnercontainer">
       <input
@@ -80,7 +83,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
       <input type="button" id="referlistbutton" value="Join waitlist" />
     </div>
   </div>
-  
+
   <script src="https://referlist.co/resources/referlist.js"
     type="text/javascript"></script>
   <script>
@@ -89,7 +92,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
     });
   </script>
   <!-- End referlist signup form -->
-  ```
+```
 
 # Install in React via npm
 
@@ -171,6 +174,7 @@ For example
 ```
 
 ## Multiple sign up forms
+
 If you want to add multiple sign-up fields to a single page on your site, call `referlist.initialize` with the following parameters: `emailId` and `buttonId`.
 
 For example, call `referlist.initialize({ domain: NAME_OF_YOUR_DOMAIN, emailId: ID_OF_EMAIL_FIELD, buttonId: ID_OF_BUTTON_FIELD})` where `ID_OF_EMAIL_FIELD` is the id of the second field where you want to collect the email address and `ID_OF_BUTTON_FIELD` is the id of the second button which signs up your user.
@@ -185,40 +189,51 @@ Here is a code sample:
 
 // .... somewhere down in the same page
 
-<input type="text" id="ID_OF_EMAIL_FIELD" />
-<input type="button" id="ID_OF_BUTTON_FIELD" value="Join waitlist"/>
+<input type="text" id="secondemailfield" />
+<input type="button" id="secondbutton" value="Join waitlist"/>
 
-  <div class="referlistcontainer">
-    <div class="referlistinnercontainer">
-      <input
-        type="text"
-        id="referlistemail"
-        placeholder="email@yourcompany.com"
-      />
-      <input type="button" id="referlistbutton" value="Join waitlist" />
-    </div>
-    ....
-    ....
-    ....
-    <input type="text" id="secondemailfield" />
-    <input type="button" id="secondbutton" value="Join waitlist"/>
-  </div>
-  
+<input type="text" id="thirdemailfield" />
+<input type="button" id="thirdbutton" value="Join waitlist"/>
+
+
+<script src="https://referlist.co/resources/referlist.js" type="text/javascript"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  window.referlist.initialize({ domain: 'myproject' }); // this will setup the first field
+  window.referlist.initialize({ domain: 'myproject', emailId: 'secondemailfield', buttonId: 'secondbutton' }); // this will setup the second field
+  window.referlist.initialize({ domain: 'myproject', emailId: 'thirdemailfield', buttonId: 'thirdbutton' }); // this will setup the third field
+});
+</script>
+```
+
+# Call function to add to waitlist
+
+You can also manually call a function `addToWaitlist` to add an email to the waitlist. It's signature is:
+`addToWaitlist(domain, email, referralCode)`
+where 
+`domain` is the name your domain, `email` is the email of the person you want to add to your waitlist and `referralCode` is the referral code of the person who referred them. It's optional. If `referralCode` isn't provided, it'll try to read it from the URL.
+
+```
   <script src="https://referlist.co/resources/referlist.js"
     type="text/javascript"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-      window.referlist.initialize({ domain: 'myproject' }); // this will setup the first field
-      window.referlist.initialize({ domain: 'myproject', emailId: 'secondemailfield', buttonId: 'secondbutton' }); // this will setup the second field
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      window.referlist.addToWaitlist('NAME_OF_YOUR_DOMAIN', 'EMAIL_TO_ADD_TO_WAITLIST', 'REFERRAL_CODE');
     });
   </script>
 ```
 
 # Importing signups
+
 To import signups from an existing waitlist, format your existing waitlist as a CSV with a column called `email`. We'll extract all emails from that column in the same order and add them to your Referlist waitlist.
 
 # Exporting signups
+
 ## Mailchimp
+
 1. In a project, click Setup and scroll down to Integrations
 2. Click on Connect to Mailchimp
 3. Authorize access to Mailchimp
@@ -226,6 +241,7 @@ To import signups from an existing waitlist, format your existing waitlist as a 
 5. Hit Save
 
 ## Airtable
+
 1. Make sure your Airtable base has a table called "signups" and a column called "emails"
 2. In a project, click Setup and scroll down to Integrations
 3. Find your Airtable API Key by going to your Accounts page and enter it. [See instructions here](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-)
