@@ -94,7 +94,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
   <!-- End referlist signup form -->
 ```
 
-# Install in React via npm
+# Install in React or NextJS via npm
 
 1. Install `referlist` via npm by running `npm install referlist --save` in your React app.
 
@@ -110,6 +110,28 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
 ```
 
 Make sure to replace `NAME_OF_YOUR_DOMAIN` with the domain you entered in the Referlist setup page.
+
+If you're fancy and use function components and hooks, initialize Referlist in a `useEffect` function that runs once on mount like so:
+
+```
+  useEffect(() => {
+    referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
+  }, []);
+```
+
+If you're using NextJS, note that this library accesses the `window` object and needs to run client-side. Use dynamic imports to get around this. You can read more in this [closed issue](https://github.com/parthibanloganathan/referlist-sdk/issues/4).
+
+```
+  const Referlist = dynamic(
+    () =>
+      import("referlist").then((referlist) =>
+        referlist.initialize({ domain: "NAME_OF_YOUR_DOMAIN" })
+      ),
+    { ssr: false }
+  );
+```
+and then render `<Referlist />` in your function body.
+
 
 4. Add the following `id` to the input field and button where you collect emails
 
@@ -144,6 +166,56 @@ class Signup extends Component {
 }
 
 export default Signup;
+```
+
+and here it is with hooks
+
+```
+import React, { Component } from "react";
+import referlist from "referlist";
+
+function Signup{
+  useEffect(() => {
+    referlist.initialize({ domain: 'NAME_OF_YOUR_DOMAIN' });
+  }, []);
+
+  render() {
+    return (
+      <div>
+        <input type="text" id="referlistemail" />
+        <input type="button" id="referlistbutton" value="Join waitlist" />
+      </div>
+    );
+  }
+}
+
+export default Signup;
+```
+
+and here it is with NextJS
+
+```
+import dynamic from "next/dynamic";
+
+export default function Home() {
+  const Referlist = dynamic(
+    () =>
+      import("referlist").then((referlist) =>
+        referlist.initialize({ domain: "NAME_OF_YOUR_DOMAIN" })
+      ),
+    { ssr: false }
+  );
+
+  return (
+    <div className="container">
+      <Referlist />
+      <div>
+        <input type="text" id="referlistemail" />
+        <input type="button" id="referlistbutton" value="Join waitlist" />
+      </div>
+    </div>
+  );
+}
 ```
 
 # Install manually in any HTML page
