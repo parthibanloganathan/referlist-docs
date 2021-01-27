@@ -325,39 +325,6 @@ To import signups from an existing waitlist, format your existing waitlist as a 
 
 With our waitlist API, you can add email signups, query for more info on a particular email and list all emails in your list. You can find your API key in Setup. Include it in the header under the field `api-key` in all your calls.
 
-`POST` Add signup
-
-`https://referlist.co/external/addsignup`
-
-<!-- tabs:start -->
-
-#### ** Request **
-
-**Headers**
-
-| Name    | Type   | Description                      | Required |
-| ------- | ------ | -------------------------------- | -------- |
-| api-key | string | Your API key from the setup page | `true`   |
-
-**Body Parameters**
-
-| Name         | Type   | Description                                           | Required |
-| ------------ | ------ | ----------------------------------------------------- | -------- |
-| email        | string | Email of person you want to signup                   | `true`   |
-| referralCode | string | Referral code of the person who referred this signup | `false`  |
-
-#### ** Response **
-
-**200: OK**
-
-```
-{
-    "referralCode": "yfacn6WCe",
-    "position": 4,550,
-    "alreadyAdded": true
-}
-```
-
 <!-- tabs:end -->
 ## Add a signup
 
