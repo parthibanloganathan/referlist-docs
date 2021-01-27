@@ -6,12 +6,13 @@ Add Referlist to your landing page in less than 5 minutes
 2. In the Setup tab, fill out the Required section. You need to choose a domain, enter your company's name and your website URL that contains your sign up form. To further customize your waitlist page, you can fill out the rest of the sections in Setup.
 3. Click Preview to see your waitlist page in a new tab. If everything looks good, hit Save.
 
-Now it's time to install Referlist code on your site. There are four ways you can do this in order of least to most custom:
+Now it's time to install Referlist code on your site. There are five ways you can do this in order of least to most custom:
 
 1. Copy and paste an embedded sign up form and get a styled Join waitlist text box and button. No code required
-2. Use our [npm module](https://www.npmjs.com/package/referlist) to add Referlist to your React app
+2. Use our [npm module](https://www.npmjs.com/package/referlist) to add Referlist to your React or NextJS app
 3. Copy and paste a Javascript snippet and add ids to the right elements on your website
 4. Copy and paste a Javascript snippet and manually make a call to add a user to the waitlist
+5. Add email signups [via our API](https://docs.referlist.co/#/?id=api)
 
 Pick whichever suits your needs best. If we don't support an installation method that you need, just email us at <support@referlist.co> and we'll help.
 
@@ -130,8 +131,8 @@ If you're using NextJS, note that this library accesses the `window` object and 
     { ssr: false }
   );
 ```
-and then render `<Referlist />` in your function body.
 
+and then render `<Referlist />` in your function body.
 
 4. Add the following `id` to the input field and button where you collect emails
 
@@ -247,7 +248,7 @@ For example
 
 ## Multiple sign up forms
 
-If you want to add multiple sign-up fields to a single page on your site, call `referlist.initialize` with the following parameters: `emailId` and `buttonId`.
+If you want to add multiple signup fields to a single page on your site, call `referlist.initialize` with the following parameters: `emailId` and `buttonId`.
 
 For example, call `referlist.initialize({ domain: NAME_OF_YOUR_DOMAIN, emailId: ID_OF_EMAIL_FIELD, buttonId: ID_OF_BUTTON_FIELD})` where `ID_OF_EMAIL_FIELD` is the id of the second field where you want to collect the email address and `ID_OF_BUTTON_FIELD` is the id of the second button which signs up your user.
 
@@ -283,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 You can also manually call a function `addToWaitlist` to add an email to the waitlist. It's signature is:
 `addToWaitlist(domain, email, referralCode)`
-where 
+where
 `domain` is the name your domain, `email` is the email of the person you want to add to your waitlist and `referralCode` is the referral code of the person who referred them. It's optional. If `referralCode` isn't provided, it'll try to read it from the URL.
 
 ```
@@ -319,3 +320,167 @@ To import signups from an existing waitlist, format your existing waitlist as a 
 3. Find your Airtable API Key by going to your Accounts page and enter it. [See instructions here](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-)
 4. Find your Airtable Base ID by going to the Airtable API documentation and clicking on your base. [See instructions here](https://airtable.com/api)
 5. Hit Save
+
+# API
+
+With our waitlist API, you can add email signups, query for more info on a particular email and list all emails in your list. You can find your API key in Setup. Include it in the header under the field `api-key` in all your calls.
+
+`POST` Add signup
+
+`https://referlist.co/external/addsignup`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+| Name         | Type   | Description                                           | Required |
+| ------------ | ------ | ----------------------------------------------------- | -------- |
+| email        | string | Email of person you want to signup                   | `true`   |
+| referralCode | string | Referral code of the person who referred this signup | `false`  |
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+    "referralCode": "yfacn6WCe",
+    "position": 4,550,
+    "alreadyAdded": true
+}
+```
+
+<!-- tabs:end -->
+## Add a signup
+
+`POST` Add a signup
+
+`https://referlist.co/external/addsignup`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+| Name         | Type   | Description                                           | Required |
+| ------------ | ------ | ----------------------------------------------------- | -------- |
+| email        | string | Email of person you want to signup                   | `true`   |
+| referralCode | string | Referral code of the person who referred this signup | `false`  |
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+    "referralCode": "yfacn6WCe",
+    "position": 4550,
+    "alreadyAdded": true
+}
+```
+
+<!-- tabs:end -->
+## Lookup a signup
+
+`POST` Get more information on a signup
+
+`https://referlist.co/external/getsignupinfo`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+| Name  | Type   | Description                         | Required |
+| ----- | ------ | ----------------------------------- | -------- |
+| email | string | Email of person you want to signup | `true`   |
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+    "email": "alice@gmail.com",
+    "verified": false,
+    "points": 8,
+    "referralCode": "yfacn6WCe",
+    "referralSource": "alexander@gmail.com",
+    "position": 1432,
+    "referredEmailsAnonymized": [
+        "j****e@gmail.com"
+    ],
+    "referredEmails": [
+        "janice@gmail.com"
+    ]
+}
+```
+
+<!-- tabs:end -->
+## List all signups
+
+`POST` List signups
+
+`https://referlist.co/external/getsignups`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+`none`
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+    "signups": [
+        {
+            "email": "alice@gmail.com",
+            "verified": false,
+            "points": 5,
+            "referralCode": "yfacn6WCe"
+        },
+        {
+            "email": "bob@gmail.com",
+            "verified": true,
+            "points": 1,
+            "referralCode": "K7rSyNoBP"
+        },
+        ...
+    ]
+}
+```
+
+<!-- tabs:end -->
