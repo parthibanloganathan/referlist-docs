@@ -74,7 +74,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
     }
   </style>
 
-  <div class="referlistcontainer">
+  <form id="referlistform" class="referlistcontainer">
     <div class="referlistinnercontainer">
       <input
         type="text"
@@ -83,7 +83,7 @@ Let's take Squarespace as an example. Note that adding code blocks with JavaScri
       />
       <input type="button" id="referlistbutton" value="Join waitlist" />
     </div>
-  </div>
+  </form>
 
   <script src="https://referlist.co/resources/referlist.js"
     type="text/javascript"></script>

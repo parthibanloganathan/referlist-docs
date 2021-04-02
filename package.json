@@ -1,6 +1,6 @@
 {
   "name": "referlist",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "SDK for integrating Referlist on your website",
   "main": "index.js",
   "repository": "https://github.com/parthibanloganathan/referlist-sdk",
@@ -13,6 +13,7 @@
   ],
   "author": "Referlist",
   "contributors": [
+    "Parthi Loganathan",
     "Ather Sajjad"
   ],
   "license": "MIT"
