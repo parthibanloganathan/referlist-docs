@@ -346,8 +346,9 @@ With our waitlist API, you can add email signups, query for more info on a parti
 
 | Name         | Type   | Description                                           | Required |
 | ------------ | ------ | ----------------------------------------------------- | -------- |
-| email        | string | Email of person you want to signup                   | `true`   |
-| referralCode | string | Referral code of the person who referred this signup | `false`  |
+| email        | string | Email of person you want to signup                    | `true`   |
+| referralCode | string | Referral code of the person who referred this signup  | `false`  |
+| verify       | bool   | Whether to send a verification email or not           | `false`  |
 
 #### ** Response **
 
@@ -364,7 +365,7 @@ With our waitlist API, you can add email signups, query for more info on a parti
 <!-- tabs:end -->
 ## Lookup a signup
 
-`POST` Get more information on a signup
+`POST` Get more information on a signup. If signup isn't verified, you will receive an active verification link too.
 
 `https://referlist.co/external/getsignupinfo`
 
@@ -382,7 +383,7 @@ With our waitlist API, you can add email signups, query for more info on a parti
 
 | Name  | Type   | Description                         | Required |
 | ----- | ------ | ----------------------------------- | -------- |
-| email | string | Email of person you want to signup | `true`   |
+| email | string | Email of person you want to signup  | `true`   |
 
 #### ** Response **
 
@@ -395,6 +396,8 @@ With our waitlist API, you can add email signups, query for more info on a parti
     "points": 8,
     "referralCode": "yfacn6WCe",
     "referralSource": "alexander@gmail.com",
+    "referralPageLink": "https://yourcompany.com/joinwaitlist/referlist?email=abc%40gmail.com",
+    "verificationLink": "https://referlist.co/verify/?token=918e060989100c20364e56eb6cbc6dfb",
     "position": 1432,
     "referredEmailsAnonymized": [
         "j****e@gmail.com"
