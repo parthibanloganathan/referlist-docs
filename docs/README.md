@@ -22,7 +22,7 @@ Most website builders have a custom code block feature where you can inject your
 
 Links to code embed help center articles for on popular website builders:
 
-1. [Squarespace](https://support.squarespace.com/hc/en-us/articles/206543167)
+1. [Squarespace](https://support.squarespace.com/hc/en-us/articles/206543167) (you need to be on a Business or Commerce plan)
 2. [Webflow](https://university.webflow.com/article/embed)
 3. [Wix](https://support.wix.com/en/article/wix-editor-using-iframes-to-display-visible-content-on-your-site) (click on Embeds > Embed a site and enter the Referlist code. Requires Wix Premium plan)
 4. [Weebly](https://www.weebly.com/app/help/us/en/topics/create-widgets-embed-code-and-add-external-content)
