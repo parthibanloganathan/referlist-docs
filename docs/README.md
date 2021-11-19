@@ -348,7 +348,7 @@ With our waitlist API, you can add email signups, query for more info on a parti
 | ------------ | ------ | ----------------------------------------------------- | -------- |
 | email        | string | Email of person you want to signup                    | `true`   |
 | referralCode | string | Referral code of the person who referred this signup  | `false`  |
-| verify       | bool   | Whether to send a verification email or not           | `true`  |
+| verify       | bool   | Whether to send a verification email or not           | `true`   |
 
 #### ** Response **
 
