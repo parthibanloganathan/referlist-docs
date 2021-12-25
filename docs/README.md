@@ -357,7 +357,6 @@ With our waitlist API, you can add email signups, query for more info on a parti
 ```
 {
     "referralCode": "yfacn6WCe",
-    "position": 4550,
     "alreadyAdded": true
 }
 ```
@@ -366,6 +365,9 @@ With our waitlist API, you can add email signups, query for more info on a parti
 ## Lookup a signup
 
 `POST` Get more information on a signup. If signup isn't verified, you will receive an active verification link too.
+
+The referred emails are limited to 20. For a full list, use the `/referred` end point.
+If you want position, use the `/position` end point.
 
 `https://referlist.co/external/getsignupinfo`
 
@@ -398,8 +400,80 @@ With our waitlist API, you can add email signups, query for more info on a parti
     "referralSource": "alexander@gmail.com",
     "referralPageLink": "https://yourcompany.com/joinwaitlist/referlist?email=abc%40gmail.com",
     "verificationLink": "https://referlist.co/verify/?token=918e060989100c20364e56eb6cbc6dfb",
-    "position": 1432,
-    "referredEmailsAnonymized": [
+     "referredEmailsAnonymized": [
+        "j****e@gmail.com"
+    ],
+    "referredEmails": [
+        "janice@gmail.com"
+    ]
+}
+```
+
+<!-- tabs:end -->
+## Find position of a signup
+
+`POST` Get the position of a signup.
+
+`https://referlist.co/external/position`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+| Name  | Type   | Description                         | Required |
+| ----- | ------ | ----------------------------------- | -------- |
+| email | string | Email of person you want to signup  | `true`   |
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+  "email": "alice@gmail.com"
+  "position": 983
+}
+```
+
+<!-- tabs:end -->
+## Get all referred emails of a signup
+
+`POST` Get the full list of referred emails for a signup.
+
+`https://referlist.co/external/referred`
+
+<!-- tabs:start -->
+
+#### ** Request **
+
+**Headers**
+
+| Name    | Type   | Description                      | Required |
+| ------- | ------ | -------------------------------- | -------- |
+| api-key | string | Your API key from the setup page | `true`   |
+
+**Body Parameters**
+
+| Name  | Type   | Description                         | Required |
+| ----- | ------ | ----------------------------------- | -------- |
+| email | string | Email of person you want to signup  | `true`   |
+
+#### ** Response **
+
+**200: OK**
+
+```
+{
+    "email": "alice@gmail.com",
+     "referredEmailsAnonymized": [
         "j****e@gmail.com"
     ],
     "referredEmails": [
