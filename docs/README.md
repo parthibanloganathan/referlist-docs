@@ -401,10 +401,12 @@ If you want position, use the `/position` end point.
     "referralPageLink": "https://yourcompany.com/joinwaitlist/referlist?email=abc%40gmail.com",
     "verificationLink": "https://referlist.co/verify/?token=918e060989100c20364e56eb6cbc6dfb",
      "referredEmailsAnonymized": [
-        "j****e@gmail.com"
+        "j****e@gmail.com",
+        ...
     ],
     "referredEmails": [
-        "janice@gmail.com"
+        "janice@gmail.com",
+        ...
     ]
 }
 ```
@@ -462,9 +464,11 @@ If you want position, use the `/position` end point.
 
 **Body Parameters**
 
-| Name  | Type   | Description                         | Required |
-| ----- | ------ | ----------------------------------- | -------- |
-| email | string | Email of person you want to signup  | `true`   |
+| Name   | Type   | Description                            | Required |
+| ------ | ------ | -------------------------------------- | -------- |
+| email  | string | Email of referrer you want to lookup   | `true`   |
+| offset | int    | Starting index of records to retrieve  | `true`   |
+| limit  | int    | Number of emails to fetch. Max of 50   | `true`   |
 
 #### ** Response **
 
@@ -472,12 +476,15 @@ If you want position, use the `/position` end point.
 
 ```
 {
+    "count": 200000,
     "email": "alice@gmail.com",
      "referredEmailsAnonymized": [
-        "j****e@gmail.com"
+        "j****e@gmail.com",
+        ...
     ],
     "referredEmails": [
-        "janice@gmail.com"
+        "janice@gmail.com",
+        ...
     ]
 }
 ```
@@ -501,7 +508,10 @@ If you want position, use the `/position` end point.
 
 **Body Parameters**
 
-`none`
+| Name   | Type   | Description                            | Required |
+| ------ | ------ | -------------------------------------- | -------- |
+| offset | int    | Starting index of records to retrieve  | `true`   |
+| limit  | int    | Number of signups to fetch. Max of 50  | `true`   |
 
 #### ** Response **
 
@@ -509,6 +519,7 @@ If you want position, use the `/position` end point.
 
 ```
 {
+    "count": 200000,
     "signups": [
         {
             "email": "alice@gmail.com",
