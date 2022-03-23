@@ -476,7 +476,8 @@ If you want position, use the `/position` end point.
 
 ```
 {
-    "count": 200000,
+    "count": 500,
+    "totalSignups": 200000,
     "email": "alice@gmail.com",
      "referredEmailsAnonymized": [
         "j****e@gmail.com",
